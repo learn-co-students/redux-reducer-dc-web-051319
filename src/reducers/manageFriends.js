@@ -1,15 +1,24 @@
-let initialState = {friend: ""}
+let initialState = { friend: "" };
 
-export function manageFriends(state=initialState, action){
-    switch(action.type){
-        case "ADD_FRIEND":
-            console.log("Add friend", action.type)
-            return {}
-        case "REMOVE_FRIEND":
-            console.log("Remove Friend", action.type)
-        default: 
-        return state 
-    }
+export function manageFriends(state = initialState, action) {
+  switch (action.type) {
+    case "ADD_FRIEND":
+      return { ...state, friends: [...state.friends, action.friend] };
+
+    case "REMOVE_FRIEND":
+      const removalIndex = state.friends.findIndex(
+        friend => friend.id === action.id
+      );
+      return {
+        ...state,
+        friends: [
+          ...state.friends.slice(0, removalIndex),
+          ...state.friends.slice(removalIndex + 1)
+        ]
+      };
+    default:
+      return state;
+  }
 }
 
     // In managePresents.js, 
