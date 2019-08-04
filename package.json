@@ -4,6 +4,8 @@
   "description": "Build a reducer to manage state",
   "main": "index.js",
   "scripts": {
+    "compile:sass": "node-sass sass/main.scss  css/style.css -w",
+    "start": "node-sass sass/main.scss  css/style.css -w",
     "debug": "node-debug --hidden node_modules _mocha --watch",
     "debug-ide": "./bin/debug-ide",
     "test": "mocha -R mocha-multi --reporter-options nyan=-,json=.results.json"
@@ -31,7 +33,7 @@
     "expect": "^1.20.2",
     "jsdom": "^9.4.1",
     "mocha": "^5.2.0",
-    "mocha-multi": "^1.0.1",
+    "mocha-multi": "^1.1.0",
     "sinon": "^1.17.6"
   },
   "dependencies": {
